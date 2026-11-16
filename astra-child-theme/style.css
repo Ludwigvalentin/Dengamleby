@@ -1,0 +1,83 @@
+/*
+Theme Name: Astra Child Theme
+Theme URI: https://wpastra.com/
+Author: Oliver
+Author URI: https://dengamleby.visualstudios.dk/
+Description: Child theme based on Astra for Den Gamle By.
+Version: 1.0.2
+Template: astra
+*/
+
+@media (min-width: 922px) {
+  .ast-theme-transparent-header #masthead {
+    position: fixed;
+    background-color: #132412;
+    width: 100%;
+  }
+}
+
+/* ==========================================================
+   Egne tilpasninger – Træd ind i historien
+   Reglerne rammer CSS-klasser, vi selv har sat på
+   Elementor-widgets på forsiden (fx tih-stop og tih-panel-title).
+   ========================================================== */
+
+/* 1) Farvevariabler, så farverne kun skal ændres ét sted */
+:root {
+  --dgb-moerk: #221f20;
+  --dgb-guld: #b08d4c;
+  --dgb-pergament: #f4f1ec;
+}
+
+/* 2) Topbilledets titel får en blød skygge, så den kan læses oven på fotoet */
+.elementor-widget-heading h1.elementor-heading-title {
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* 3) Menuknappen i headeren bliver en stor rund cirkel som på dengamleby.dk */
+.hfe-nav-menu__toggle {
+  padding: 18px !important;
+  border-radius: 50% !important;
+}
+
+/* 4) Stop-knapperne under 3D-kortet løfter sig og får en guldlinje, når man holder musen over */
+.tih-stop .elementor-button {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.tih-stop .elementor-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 3px 0 var(--dgb-guld);
+}
+
+/* 5) Overskriften i infoboksen ved kortet får en guldstreg i venstre side */
+.tih-panel-title {
+  border-left: 4px solid var(--dgb-guld);
+  padding-left: 12px;
+}
+
+/* 6) Fold-ud-punkterne skifter baggrund ved hover, og det åbne punkt bliver guldfarvet */
+.elementor-toggle .elementor-tab-title {
+  transition: background-color 0.2s ease;
+}
+.elementor-toggle .elementor-tab-title:hover {
+  background-color: var(--dgb-pergament) !important;
+}
+.elementor-toggle .elementor-tab-title.elementor-active .elementor-toggle-title,
+.elementor-toggle .elementor-tab-title.elementor-active .elementor-toggle-icon {
+  color: var(--dgb-guld) !important;
+}
+
+/* 7) Tydelig fokus-ramme for dem, der bruger tastaturet (tilgængelighed) */
+a:focus-visible,
+button:focus-visible,
+.elementor-button:focus-visible,
+.elementor-tab-title:focus-visible {
+  outline: 3px solid var(--dgb-guld);
+  outline-offset: 3px;
+}
+
+/* 8) Markeret tekst bliver guldfarvet */
+::selection {
+  background: var(--dgb-guld);
+  color: #fff;
+}
